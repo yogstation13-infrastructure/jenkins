@@ -2,4 +2,4 @@
 
 cat <&0 > kustomization/inflated.yaml
 
-kustomize build kustomization
+kustomize build kustomization && rm kustomization/inflated.yaml
