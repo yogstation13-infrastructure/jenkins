@@ -237,6 +237,7 @@ jenkins:
       - github-oauth:0.34
       - matrix-auth:2.6.8
       - kubernetes-credentials-provider::https://raw.githubusercontent.com/yogstation13-infrastructure/jenkins/master/kubernetes-credentials-provider-0.20-SNAPSHOT.hpi
+      - timestamper:1.13
 
     # Set to false to download the minimum required version of all dependencies.
     installLatestPlugins: true
@@ -319,6 +320,9 @@ jenkins:
         misc: |
           jenkins:
             systemMessage: Yogstation Jenkins Server
+          unclassified:
+            timestamper:
+              allPipelines: true
         mail: |
           unclassified:
             mailer:
