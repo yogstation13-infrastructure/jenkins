@@ -235,6 +235,8 @@ controller:
     - workflow-aggregator:2.6
     - git:4.10.0
     - configuration-as-code:1.54
+    - github-oauth:0.34
+    - matrix-auth:2.6.8
 
   # Set to false to download the minimum required version of all dependencies.
   installLatestPlugins: true
