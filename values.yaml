@@ -236,7 +236,7 @@ jenkins:
       - configuration-as-code:1.54
       - github-oauth:0.34
       - matrix-auth:2.6.8
-      - kubernetes-credentials-provider:0.20
+      - https://raw.githubusercontent.com/yogstation13-infrastructure/jenkins/master/kubernetes-credentials-provider-0.20-SNAPSHOT.hpi
 
     # Set to false to download the minimum required version of all dependencies.
     installLatestPlugins: true
@@ -329,6 +329,14 @@ jenkins:
               smtpHost: "mail.yogstation.net"
               useSsl: true
               useTls: true
+        github-app: |
+          unclassified:
+            gitHubPluginConfig:
+                configs:
+                - credentialsId: "jenkins-github-pat-credentials"
+                hookSecretConfigs:
+                - credentialsId: "jenkins-github-shared-secret"
+                hookUrl: "https://jenkins.yogstation.net/github-webhook/"
 
       #  welcome-message: |
       #    jenkins:
@@ -837,7 +845,7 @@ jenkins:
   ## Install Default RBAC roles and bindings
   rbac:
     create: true
-    readSecrets: false
+    readSecrets: true
 
   serviceAccount:
     create: true
