@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: jenkins-agents
-  annotations:
-    field.cattle.io/projectId: p-h4872
-  labels:
-    jenkins-agents: "true"

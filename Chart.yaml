@@ -1,0 +1,7 @@
+apiVersion: v2
+name: yogstation-jenkins
+description: Yogstation Jenkins Deployment
+
+type: application
+
+version: 0.0.1
