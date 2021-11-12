@@ -315,24 +315,67 @@ controller:
   # etc.  Best reference is https://<jenkins_url>/configuration-as-code/reference.  The example below creates a welcome message:
   JCasC:
     defaultConfig: true
-    configScripts: {}
+    configScripts:
+      misc: |
+        jenkins:
+          systemMessage: Yogstation Jenkins Server
+      mail: |
+        unclassified:
+          mailer:
+            authentication:
+              username: "${jenkins-mail-credentials-user}"
+              password: "${jenkins-mail-credentials-password}"
+            charset: "UTF-8"
+            smtpHost: "mail.yogstation.net"
+            useSsl: true
+            useTls: true
+
     #  welcome-message: |
     #    jenkins:
     #      systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
     # Ignored if securityRealm is defined in controller.JCasC.configScripts and
     # ignored if controller.enableXmlConfig=true as controller.securityRealm takes precedence
     securityRealm: |-
-      local:
-        allowsSignup: false
-        enableCaptcha: false
-        users:
-        - id: "${chart-admin-username}"
-          name: "Jenkins Admin"
-          password: "${chart-admin-password}"
+      github:
+        githubApiUri: "https://api.github.com"
+        githubWebUri: "https://github.com"
+        clientID: "${jenkins-github-credentials-client-id}"
+        clientSecret: "${jenkins-github-credentials-client-secret}"
+        oauthScopes: "read:org,user:email"
     # Ignored if authorizationStrategy is defined in controller.JCasC.configScripts
     authorizationStrategy: |-
-      loggedInUsersCanDoAnything:
-        allowAnonymousRead: false
+      projectMatrix:
+            permissions:
+            - "Credentials/Create:yogstation13-infrastructure"
+            - "Credentials/Delete:yogstation13-infrastructure"
+            - "Credentials/ManageDomains:yogstation13-infrastructure"
+            - "Credentials/Update:yogstation13-infrastructure"
+            - "Credentials/View:yogstation13-infrastructure"
+            - "Job/Build:yogstation13-infrastructure"
+            - "Job/Cancel:yogstation13-infrastructure"
+            - "Job/Configure:yogstation13-infrastructure"
+            - "Job/Create:yogstation13-infrastructure"
+            - "Job/Delete:yogstation13-infrastructure"
+            - "Job/Move:yogstation13-infrastructure"
+            - "Job/Read:yogstation13-infrastructure"
+            - "Job/Workspace:yogstation13-infrastructure"
+            - "Lockable Resources/Reserve:yogstation13-infrastructure"
+            - "Lockable Resources/Unlock:yogstation13-infrastructure"
+            - "Lockable Resources/View:yogstation13-infrastructure"
+            - "Metrics/HealthCheck:yogstation13-infrastructure"
+            - "Metrics/ThreadDump:yogstation13-infrastructure"
+            - "Metrics/View:yogstation13-infrastructure"
+            - "Overall/Read:yogstation13-infrastructure"
+            - "Run/Delete:yogstation13-infrastructure"
+            - "Run/Replay:yogstation13-infrastructure"
+            - "Run/Update:yogstation13-infrastructure"
+            - "SCM/Tag:yogstation13-infrastructure"
+            - "View/Configure:yogstation13-infrastructure"
+            - "View/Create:yogstation13-infrastructure"
+            - "View/Delete:yogstation13-infrastructure"
+            - "View/Read:yogstation13-infrastructure"
+            # TODO: Remove
+            - "Overall/Administer:yogstation13-infrastructure"
   # Optionally specify additional init-containers
   customInitContainers: []
   # - name: custom-init
