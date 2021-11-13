@@ -766,7 +766,24 @@ jenkins:
     # For this pod templates configuration to be loaded the following values must be set:
     # controller.JCasC.defaultConfig: true
     # Best reference is https://<jenkins_url>/configuration-as-code/reference#Cloud-kubernetes. The example below creates a python pod template.
-    podTemplates: {}
+    podTemplates:
+      kaniko: |
+        - name: kaniko
+          label: kaniko
+          inheritFrom: default
+          containers:
+            - name: kaniko
+              command: '/busybox/sh'
+              args: "-c \"mkdir /bin && ln -s /busybox/sh /bin/sh && exec sleep inf\""
+              image: gcr.io/kaniko-project/executor:debug
+          volumes:
+            - secretVolume:
+                mountPath: "/kaniko/.docker"
+                optional: false
+                secretName: "jenkins-kaniko-registry"
+
+
+
     #  python: |
     #    - name: python
     #      label: jenkins-python
