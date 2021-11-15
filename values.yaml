@@ -319,7 +319,10 @@ jenkins:
       configScripts:
         misc: |
           jenkins:
-            systemMessage: Yogstation Jenkins Server
+            systemMessage: |
+              <h5>Yogstation Jenkins Server</h5>
+              Do not edit any settings under <i>Manage Jenkins</i> as they may be wiped <b>without warning</b> on reboots of jenkins and redeployment of the chart.
+              Instead, edit the helm chart at <a href="https://github.com/yogstation13-infrastructure/jenkins">https://github.com/yogstation13-infrastructure/jenkins</a> and redeploy it.
           unclassified:
             timestamper:
               allPipelines: true
@@ -386,7 +389,6 @@ jenkins:
               - "View/Create:yogstation13-infrastructure"
               - "View/Delete:yogstation13-infrastructure"
               - "View/Read:yogstation13-infrastructure"
-              # TODO: Remove
               - "Overall/Administer:yogstation13-infrastructure"
     # Optionally specify additional init-containers
     customInitContainers: []
