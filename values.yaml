@@ -231,14 +231,14 @@ jenkins:
 
     # List of plugins to be install during Jenkins controller start
     installPlugins:
-      - kubernetes:1.30.6
+      - kubernetes:1.31.3
       - workflow-aggregator:2.6
-      - git:4.10.0
-      - configuration-as-code:1.54
-      - github-oauth:0.34
-      - matrix-auth:2.6.8
+      - git:4.10.2
+      - configuration-as-code:1.55.1
+      - github-oauth:0.37
+      - matrix-auth:3.0
       - kubernetes-credentials-provider::https://raw.githubusercontent.com/yogstation13-infrastructure/jenkins/master/kubernetes-credentials-provider-0.20-SNAPSHOT.hpi
-      - timestamper:1.13
+      - timestamper:1.16
 
     # Set to false to download the minimum required version of all dependencies.
     installLatestPlugins: true
