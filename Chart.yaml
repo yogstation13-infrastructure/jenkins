@@ -5,3 +5,8 @@ description: Yogstation Jenkins Deployment
 type: application
 
 version: 0.0.1
+
+dependencies:
+  - name: jenkins
+    version: 3.11.1
+    repository: https://charts.jenkins.io/

@@ -14,11 +14,12 @@ jenkins:
 
   renderHelmLabels: true
 
+
   controller:
     # Used for label app.kubernetes.io/component
     componentName: "jenkins-controller"
     image: "jenkins/jenkins"
-    # tag: "2.303.3-jdk11"
+    tag: "2.330-jdk11"
     tagLabel: jdk11
     imagePullPolicy: "Always"
     imagePullSecretName:
