@@ -962,3 +962,19 @@ jenkins:
       - name: ""
         securityGroupIds: []
         podSelector: {}
+
+credentials:
+  githubapp:
+    appid: "151060"
+    privatekey:
+    owner: yogstation13
+    infraowner: yogstation13-infrastructure
+  githubpat:
+  oauth:
+    clientid: "03fdd3bb4b3ddefdfc6f"
+    clientsecret:
+  sharedsecret:
+  registrycredentials:
+  mail:
+    username:
+    password:
