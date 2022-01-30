@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: jenkins-agents
   annotations:
-    field.cattle.io/projectId: {{ .Values.clusterId }}:{{ .Values.projectId }}
+    field.cattle.io/projectId: "{{ .Values.clusterId }}:{{ .Values.projectId }}"
   labels:
-    field.cattle.io/projectId: {{ .Values.projectId }}
+    field.cattle.io/projectId: {{ .Values.projectId | quote }}
     jenkins-agents: "true"
