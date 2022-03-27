@@ -19,7 +19,7 @@ jenkins:
     # Used for label app.kubernetes.io/component
     componentName: "jenkins-controller"
     image: "jenkins/jenkins"
-    tag: "2.330-jdk11"
+    tag: "2.340-jdk11"
     tagLabel: jdk11
     imagePullPolicy: "Always"
     imagePullSecretName:
@@ -231,14 +231,14 @@ jenkins:
 
     # List of plugins to be install during Jenkins controller start
     installPlugins:
-      - kubernetes:1.31.3
-      - workflow-aggregator:2.6
-      - git:4.10.2
-      - configuration-as-code:1.55.1
+      - kubernetes:3568.vde94f6b_41b_c8
+      - workflow-aggregator:2.7
+      - git:4.11.0
+      - configuration-as-code:1414.v878271fc496f
       - github-oauth:0.37
-      - matrix-auth:3.0
+      - matrix-auth:3.1
       - kubernetes-credentials-provider::https://raw.githubusercontent.com/yogstation13-infrastructure/jenkins/master/kubernetes-credentials-provider-0.20-SNAPSHOT.hpi
-      - timestamper:1.16
+      - timestamper:1.17
 
     # Set to false to download the minimum required version of all dependencies.
     installLatestPlugins: true
